@@ -1,0 +1,54 @@
+商品表：products
+    name
+    longName
+    productId
+    storeNums
+    specifics
+    sort
+    marketPrice
+    price
+    categoryId
+    childCid
+    img
+    keywords
+    brandId
+    brandName
+    safeDay
+    safeUnit
+    safeUnitDesc
+    isDelete
+
+
+分组表：categories
+    categoryId
+    categoryName
+    sort 
+    isDelete
+
+子组表：childcategories
+    childId   
+    childName
+    sort
+    category    (外键，所属的组)
+    isDelete
+    
+
+    
+轮播图表：sliders
+    name
+    img
+    sort
+    trackid
+
+
+
+主体信息表：maindescriptions
+    categoryId
+    categoryName
+    sort
+    img
+    product1
+    product2
+    product3
+
+

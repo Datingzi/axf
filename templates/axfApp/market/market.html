@@ -1,0 +1,56 @@
+{% extends "axfApp/base/base.html" %}
+{% load static %}
+{% block title %}闪送超市{% endblock title %}
+
+
+{% block link %}
+    <link rel="stylesheet" type="text/css" href="{% static 'axfApp/market/css/market.css' %}">
+{% endblock link %}
+
+
+{% block script %}
+    <script type="application/javascript" src="{% static 'axfApp/market/js/market.js' %}"></script>
+
+{% endblock script %}
+
+
+{% block main %}
+    <div id="marketDiv" class="container">
+        <div class="col-xs-3" id="leftDiv">
+            <ul>
+                {% for item in categories %}
+                    <li><span id="yellow{{ item.categoryId }}">&nbsp;</span><a
+                            href="/market/{{ item.categoryId }}">{{ item.categoryName }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-xs-9" id="rightDiv">
+            <div class="container" id="rightTopDiv">
+                <div class="col-xs-6"><span>全部分类<span class="glyphicon glyphicon-chevron-down"></span></span></div>
+                <div class="col-xs-6"><span>综合排序<span class="glyphicon glyphicon-chevron-down"></span></span></div>
+            </div>
+            <div id="productList">
+                {#                <div>#}
+                <ul>
+                    {% for item in products %}
+                        <li>
+                            <a href="#">
+                                <img src="{{ item.img }}">
+                                <div>
+                                    <h5>{{ item.name }}</h5>
+                                    <p>{{ item.specifics }}</p>
+                                    <p>
+                                        <span>{{ item.price }}</span>
+                                        &nbsp;&nbsp;
+                                        <span>{{ item.marketPrice }}</span>
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                {#                </div>#}
+            </div>
+        </div>
+    </div>
+{% endblock main %}
