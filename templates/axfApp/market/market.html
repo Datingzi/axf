@@ -20,17 +20,26 @@
             <ul>
                 {% for item in categories %}
                     <li><span id="yellow{{ item.categoryId }}">&nbsp;</span><a
-                            href="/market/{{ item.categoryId }}">{{ item.categoryName }}</a></li>
+                            href="/market/{{ item.categoryId }}/0/0/">{{ item.categoryName }}</a></li>
                 {% endfor %}
             </ul>
         </div>
         <div class="col-xs-9" id="rightDiv">
             <div class="container" id="rightTopDiv">
-                <div class="col-xs-6"><span>全部分类<span class="glyphicon glyphicon-chevron-down"></span></span></div>
-                <div class="col-xs-6"><span>综合排序<span class="glyphicon glyphicon-chevron-down"></span></span></div>
+                <div id="typeBtn" class="col-xs-6">
+                    <span>
+                        全部分类
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </span>
+                </div>
+                <div id="sortBtn" class="col-xs-6">
+                    <span>
+                        综合排序
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </span>
+                </div>
             </div>
             <div id="productList">
-                {#                <div>#}
                 <ul>
                     {% for item in products %}
                         <li>
@@ -42,14 +51,31 @@
                                     <p>
                                         <span>{{ item.price }}</span>
                                         &nbsp;&nbsp;
-                                        <span>{{ item.marketPrice }}</span>
+                                        {% if item.price <= item.marketPrice %}
+                                            <span style="text-decoration: line-through">{{ item.marketPrice }}</span>
+                                        {% endif %}
                                     </p>
                                 </div>
                             </a>
                         </li>
                     {% endfor %}
                 </ul>
-                {#                </div>#}
+                <div id="typeDiv">
+                    <div>
+                        {% for item in childCategories %}
+                            <a href="/market/{{ item.category.categoryId }}/{{ item.childId }}/0/"><span>{{ item.childName }}</span></a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div id="sortDiv">
+                    <div>
+                        <a href="/market/{{ gid }}/{{ childGid }}/0/"><span>综合排序</span></a>
+                        <a href="/market/{{ gid }}/{{ childGid }}/1/"><span>价格最高</span></a>
+                        <a href="/market/{{ gid }}/{{ childGid }}/2/"><span>价格最低</span></a>
+                        <a href="#"><span>销量最高</span></a>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
