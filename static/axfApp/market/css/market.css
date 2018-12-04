@@ -39,6 +39,8 @@
     border-right: solid 1px #e0e0e0;
 }
 
+
+
 #productList {
     height: 15.5rem;
     margin-top: 0;
@@ -65,4 +67,28 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+#productList > div {
+    position: fixed;
+    top: 3rem;
+    width: 75%;
+    right: 0;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    color: grey;
+    display: none;
+}
+
+#productList > div > div {
+  background: white;
+  padding-bottom: 0.3rem; }
+
+#productList > div > div > a > span {
+  border: 0.04rem solid #e0e0e0;
+  padding: 0.1rem 0.2rem;
+  margin-left: 0.35rem;
+  border-radius: 0.25rem;
+  font-size: 0.4rem;
+  display: inline-block;
+  margin-top: 0.35rem;
 }

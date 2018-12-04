@@ -78,10 +78,17 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'axf_',
+<<<<<<< Updated upstream
         'USER': 'root',
         'PASSWORD': '123456',
         'HOST': '59.110.233.209',
         'PORT': 3306,
+=======
+        'USER':'root',
+        'PASSWORD':'123456',
+        'HOST':'59.110.233.209',
+        'PORT':3306,
+>>>>>>> Stashed changes
     }
 }
 
